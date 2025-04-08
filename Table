@@ -1,0 +1,18 @@
+CREATE TABLE [dbo].[BookAppointment] (
+    [Id]             INT            IDENTITY (1, 1) NOT NULL,
+    [Doc_Dept_Id]    INT            NOT NULL,
+    [Doctor_Name_Id] INT            NOT NULL,
+    [Name]           NVARCHAR (MAX) NOT NULL,
+    [Email]          NVARCHAR (MAX) NOT NULL,
+    [Date]           NVARCHAR (MAX) NOT NULL,
+    [Time]           NVARCHAR (MAX) NOT NULL,
+    [Fever]          NVARCHAR (MAX) NOT NULL,
+    [Cough]          NVARCHAR (MAX) NOT NULL,
+    [Headache]       NVARCHAR (MAX) NOT NULL,
+    [Fatigue]        NVARCHAR (MAX) NOT NULL,
+    [Other]          NVARCHAR (MAX) NOT NULL,
+    [BloodGroup]     NVARCHAR (MAX) NOT NULL,
+    [PhoneNo]        NVARCHAR (MAX) NOT NULL,
+    PRIMARY KEY CLUSTERED ([Id] ASC)
+);
+
