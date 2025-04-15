@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -21,8 +21,21 @@ namespace Project_Hospital.Admin
         {
             getcon();
 
+
+            if (Session["user"] != null)
+            {
+                lbl_welcome.Text = "WELCOME  " + Session["user"];
+            }
+            else
+            {
+                Response.Redirect("Login_Admin.aspx");
+            }
+
+
             //1....
             display();
+
+
         }
 
         void getcon()
@@ -49,6 +62,13 @@ namespace Project_Hospital.Admin
         protected void Back_Click(object sender, EventArgs e)
         {
             Response.Redirect("index.aspx");
+        }
+
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+            Session.Clear();
+            Session.Abandon();
+            Response.Redirect("Login_Admin.aspx");
         }
     }
 }

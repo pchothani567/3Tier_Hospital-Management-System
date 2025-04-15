@@ -1,4 +1,6 @@
-<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="Add_Doctor.aspx.cs" Inherits="Project_Hospital.Admin.Add_Doctor" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="Add_Doctor.aspx.cs" Inherits="Project_Hospital.Admin.Add_Doctor" %>
+
+<%@ Register Assembly="CrystalDecisions.Web, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304" Namespace="CrystalDecisions.Web" TagPrefix="CR" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 
@@ -40,7 +42,7 @@
             <div class="site-info">
               <a href="#"><span class="mai-call text-primary"></span> +00 123 4455 6666</a>
               <span class="divider">|</span>
-              <a href="#"><span class="mai-mail text-primary"></span> mail@example.com</a>
+              <a href="#"><span class="mai-mail text-primary"></span>onehealth@gmail.com</a>
 
                  <%-- User Name--%> <%--RegistrationAdmin=>Table--%>
                   <span class="divider">|</span>
@@ -111,7 +113,7 @@
 
 <asp:Content ID="Content3" runat="server" contentplaceholderid="ContentPlaceHolder2">
    
-    <div class="page-banner overlay-dark bg-image" style="background-image: url(../assets/img/bg_image_1.jpg);">
+    <div class="page-banner overlay-dark bg-image" style="background-image: url(../assets/img/blog/AddDoctor_img.jpg);">
     <div class="banner-section">
       <div class="container text-center wow fadeInUp">
         <nav aria-label="Breadcrumb">
@@ -271,7 +273,17 @@
 
     </center>
 
-    <br /><br />
+    <br />
+
+    <center>
+
+        <asp:Button ID="Button2" runat="server" Text="Print Doctor Detail" CssClass="btn btn-primary  mt-2" OnClick="Button2_Click" />
+        <br />
+
+        <CR:CrystalReportViewer ID="CrystalReportViewer1" runat="server" AutoDataBind="true" />
+    </center>
+
+    
 
  
 </asp:Content>
@@ -327,7 +339,7 @@
 
       <hr>
 
-      <p id="copyright">Copyright &copy; 2020 <a href="https://macodeid.com/" target="_blank">MACode ID</a>. All right reserved</p>
+    <%--  <p id="copyright">Copyright &copy; 2020 <a href="https://macodeid.com/" target="_blank">MACode ID</a>. All right reserved</p>--%>
     </div>
   </footer>
 

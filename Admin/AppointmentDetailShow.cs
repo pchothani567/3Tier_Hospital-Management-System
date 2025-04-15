@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -17,11 +17,21 @@ namespace Project_Hospital.Admin
         SqlDataAdapter da;
         DataSet ds;
 
-        public void startcon()
+
+        //public void startcon()
+        //{
+        //    con = new SqlConnection(s);
+        //    con.Open();
+        //}
+
+        //Crp...1
+        public SqlConnection startcon()
         {
             con = new SqlConnection(s);
             con.Open();
+            return con;
         }
+
 
         //Select...1.1
         public DataSet filldata()

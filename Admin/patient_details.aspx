@@ -1,4 +1,4 @@
-<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="patient_details.aspx.cs" Inherits="Project_Hospital.Admin.patient_details" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="patient_details.aspx.cs" Inherits="Project_Hospital.Admin.patient_details" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" runat="server" contentplaceholderid="ContentPlaceHolder1">
@@ -38,7 +38,7 @@
             <div class="site-info">
               <a href="#"><span class="mai-call text-primary"></span> +00 123 4455 6666</a>
               <span class="divider">|</span>
-              <a href="#"><span class="mai-mail text-primary"></span> mail@example.com</a>
+              <a href="#"><span class="mai-mail text-primary"></span> onehealth@gmail.com</a>
 
                  <%-- User Name--%> <%--RegistrationAdmin=>Table--%>
                   <span class="divider">|</span>
@@ -110,7 +110,7 @@
 
 <asp:Content ID="Content3" runat="server" contentplaceholderid="ContentPlaceHolder2">
    
-      <div class="page-banner overlay-dark bg-image" style="background-image: url(../assets/img/bg_image_1.jpg);">
+      <div class="page-banner overlay-dark bg-image" style="background-image: url(../assets/img/blog/PatientDetail_img.jpg);">
     <div class="banner-section">
       <div class="container text-center wow fadeInUp">
         <nav aria-label="Breadcrumb">
@@ -135,7 +135,7 @@
 <br /><br />
     <center>
 
-    <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" OnRowCommand="GridView1_RowCommand">
+    <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" OnRowCommand="GridView1_RowCommand" BorderColor="#35E0B6" BorderWidth="4px">
         <Columns>
             <asp:TemplateField HeaderText="Id">
                 <ItemTemplate>
@@ -257,7 +257,7 @@
 
       <hr>
 
-      <p id="copyright">Copyright &copy; 2020 <a href="https://macodeid.com/" target="_blank">MACode ID</a>. All right reserved</p>
+     <%-- <p id="copyright">Copyright &copy; 2020 <a href="https://macodeid.com/" target="_blank">MACode ID</a>. All right reserved</p>--%>
     </div>
   </footer>
 

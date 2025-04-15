@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -19,11 +19,22 @@ namespace Project_Hospital.Admin
         SqlDataAdapter da;
         DataSet ds;
 
-        public void startcon()
+        //Crp...1
+
+        //public void startcon()
+        //{
+        //    con = new SqlConnection(s);
+        //    con.Open();
+
+        //}
+
+        public SqlConnection startcon()
         {
             con = new SqlConnection(s);
             con.Open();
+            return con;
         }
+
 
         //Add Department Name ....AddDepartment.aspx.cs
         public void insert(string dptnm)

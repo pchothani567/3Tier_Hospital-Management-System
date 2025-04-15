@@ -1,4 +1,6 @@
-<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="contact_details.aspx.cs" Inherits="Project_Hospital.Admin.contact_details" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="contact_details.aspx.cs" Inherits="Project_Hospital.Admin.contact_details" %>
+
+<%@ Register Assembly="CrystalDecisions.Web, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304" Namespace="CrystalDecisions.Web" TagPrefix="CR" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" runat="server" contentplaceholderid="ContentPlaceHolder1">
@@ -38,7 +40,7 @@
             <div class="site-info">
               <a href="#"><span class="mai-call text-primary"></span> +00 123 4455 6666</a>
               <span class="divider">|</span>
-              <a href="#"><span class="mai-mail text-primary"></span> mail@example.com</a>
+              <a href="#"><span class="mai-mail text-primary"></span> onehealth@gmail.com</a>
 
          <%-- User Name--%> <%--RegistrationAdmin=>Table--%>
                   <span class="divider">|</span>
@@ -110,7 +112,7 @@
 
 <asp:Content ID="Content3" runat="server" contentplaceholderid="ContentPlaceHolder2">
    
-     <div class="page-banner overlay-dark bg-image" style="background-image: url(../assets/img/bg_image_1.jpg);">
+     <div class="page-banner overlay-dark bg-image" style="background-image: url(../assets/img/blog/ContactDetail_img.jpg);">
     <div class="banner-section">
       <div class="container text-center wow fadeInUp">
         <nav aria-label="Breadcrumb">
@@ -137,7 +139,7 @@
     <br /><br /><br />
     
 
-        <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" BorderColor="#0066FF" BorderWidth="4px" Width="653px" OnRowCommand="GridView1_RowCommand">
+        <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" BorderColor="#35E0B6" BorderWidth="4px" Width="653px" OnRowCommand="GridView1_RowCommand">
             <Columns>
                 <asp:TemplateField HeaderText="Id">
                     <ItemTemplate>
@@ -174,7 +176,13 @@
 
     </center>
     
-    <br /><br /><br />
+    <br />
+    <center>
+    <asp:Button ID="Button2" runat="server" Text="Print Contact Detail" OnClick="Button2_Click" CssClass="btn btn-primary ml-lg-3" />
+    <br />
+    <CR:CrystalReportViewer ID="CrystalReportViewer1" runat="server" AutoDataBind="true" />
+    </center>
+
 
 </asp:Content>
 
@@ -228,7 +236,7 @@
 
       <hr>
 
-      <p id="copyright">Copyright &copy; 2020 <a href="https://macodeid.com/" target="_blank">MACode ID</a>. All right reserved</p>
+    <%--  <p id="copyright">Copyright &copy; 2020 <a href="https://macodeid.com/" target="_blank">MACode ID</a>. All right reserved</p>--%>
     </div>
   </footer>
 

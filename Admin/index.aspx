@@ -1,4 +1,4 @@
-<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="index.aspx.cs" Inherits="Project_Hospital.Admin.index" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="index.aspx.cs" Inherits="Project_Hospital.Admin.index" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" runat="server" contentplaceholderid="ContentPlaceHolder1">
@@ -26,7 +26,7 @@
                     <div class="row">
                         <div class="col-sm-8 text-sm">
                             <div class="site-info">
-                                <a href="#"><span class="mai-call text-primary"></span>+00 123 4455 6666</a> <span class="divider">|</span> <a href="#"><span class="mai-mail text-primary"></span>mail@example.com</a>
+                                <a href="#"><span class="mai-call text-primary"></span>+00 123 4455 6666</a> <span class="divider">|</span> <a href="#"><span class="mai-mail text-primary"></span>onehealth@gmail.com</a>
                                 
                                <%-- User Name--%> <%--RegistrationAdmin=>Table--%>
                                 <span class="divider">|</span>
@@ -134,7 +134,7 @@
                             <br>Center</h1>
                         <p class="text-grey mb-4">
                             Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Accusantium aperiam earum ipsa eius, inventore nemo labore eaque porro consequatur ex aspernatur. Explicabo, excepturi accusantium! Placeat voluptates esse ut optio facilis!</p>
-                        <a href="../about.html" class="btn btn-primary">Learn More</a>
+                        <a href="../About us.aspx" class="btn btn-primary">Learn More</a>
                     </div>
                     <div class="col-lg-6 wow fadeInRight" data-wow-delay="400ms">
                         <div class="img-place custom-img-1">
@@ -194,15 +194,17 @@
     <div class="page-section">
     <div class="container">
       <h1 class="text-center mb-5 wow fadeInUp">Our Doctors</h1>
+
          <div class="owl-carousel wow fadeInUp" id="doctorSlideshow">
         <div class="col-lg-30 py-15 wow zoomIn">
           <center>
-            <asp:DataList ID="DataList1" runat="server" RepeatDirection="Horizontal"  OnItemCommand="DataList1_ItemCommand">
+            <asp:DataList ID="DataList1" runat="server" RepeatDirection="Horizontal"  OnItemCommand="DataList1_ItemCommand" CellPadding="10" CellSpacing="5">
                 <ItemTemplate>
                    <div class="item">
                      <div class="card-doctor">
            
                          <asp:Image ID="Image1" runat="server"  Height="170px"  Width="200px"  ImageUrl='<%# Eval("Photo") %>' CssClass="doctor-img" />
+
              
                          <asp:Label ID="Label1" runat="server" class="text-xl mb-0" Text='<%# Eval("Name") %>'></asp:Label>
                          <br />
@@ -211,7 +213,7 @@
                          <br /><br />
                   
                         
-                         <asp:LinkButton ID="LinkButton2" runat="server" CommandArgument='<%# Eval("Id") %>' CommandName="cmd_detailv">View Detail</asp:LinkButton>
+                         <asp:LinkButton ID="LinkButton2" runat="server" CssClass="btn btn-primary ml-lg-2" CommandArgument='<%# Eval("Id") %>' CommandName="cmd_detailv">View Detail</asp:LinkButton>
 
 
                        </div>
@@ -409,7 +411,7 @@
                     </div>
                 </div>
                 <div class="col-12 text-center mt-4 wow zoomIn">
-                    <a href="../blog.html" class="btn btn-primary">Read More</a>
+                    <a href="../News.aspx" class="btn btn-primary">Read More</a>
                 </div>
             </div>
         </div>
@@ -460,7 +462,7 @@
     </div>
     <!-- .page-section -->--%>
 
-    <div class="page-section banner-home bg-image" style="background-image: url('../../assets/img/banner-pattern.svg');">
+    <%--<div class="page-section banner-home bg-image" style="background-image: url('../../assets/img/banner-pattern.svg');">
         <div class="container py-5 py-lg-0">
             <div class="row align-items-center">
                 <div class="col-lg-4 wow zoomIn">
@@ -476,7 +478,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div>--%>
     <!-- .banner-home -->
 
     <footer class="page-footer">
@@ -520,8 +522,8 @@
                 </div>
             </div>
             <hr>
-            <p id="copyright">
-                Copyright &copy; 2020 <a href="https://macodeid.com/" target="_blank">MACode ID</a>. All right reserved</p>
+           <%-- <p id="copyright">
+                Copyright &copy; 2020 <a href="https://macodeid.com/" target="_blank">MACode ID</a>. All right reserved</p>--%>
         </div>
     </footer>
 

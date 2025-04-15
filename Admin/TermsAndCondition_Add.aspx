@@ -1,4 +1,4 @@
-<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="TermsAndCondition_Add.aspx.cs" Inherits="Project_Hospital.Admin.TermsAndCondition_Add" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="TermsAndCondition_Add.aspx.cs" Inherits="Project_Hospital.Admin.TermsAndCondition_Add" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 

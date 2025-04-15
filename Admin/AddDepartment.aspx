@@ -1,4 +1,5 @@
-<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="AddDepartment.aspx.cs" Inherits="Project_Hospital.Admin.AddDepartment" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="AddDepartment.aspx.cs" Inherits="Project_Hospital.Admin.AddDepartment" %>
+<%@ Register assembly="CrystalDecisions.Web, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304" namespace="CrystalDecisions.Web" tagprefix="CR" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 
 
@@ -6,7 +7,6 @@
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
-       
     <!DOCTYPE html>
 <html>
 <head>
@@ -42,7 +42,7 @@
             <div class="site-info">
               <a href="#"><span class="mai-call text-primary"></span> +00 123 4455 6666</a>
               <span class="divider">|</span>
-              <a href="#"><span class="mai-mail text-primary"></span> mail@example.com</a>
+              <a href="#"><span class="mai-mail text-primary"></span> onehealth@gmail.com</a>
 
                 <%-- User Name--%> <%--RegistrationAdmin=>Table--%>
                   <span class="divider">|</span>
@@ -115,7 +115,7 @@
 
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
 
-    <div class="page-banner overlay-dark bg-image" style="background-image: url(../assets/img/bg_image_1.jpg);">
+    <div class="page-banner overlay-dark bg-image" style="background-image: url(../assets/img/blog/Department_img.jpg);">
     <div class="banner-section">
         <div class="container text-center wow fadeInUp py-3"> <!-- Reduced padding -->
             <nav aria-label="Breadcrumb">
@@ -154,7 +154,7 @@
 
     <br />
     <center>
-    <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" OnRowCommand="GridView1_RowCommand">
+    <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" OnRowCommand="GridView1_RowCommand" BorderColor="#35E0B6" BorderWidth="4px">
         <Columns>
             <asp:TemplateField HeaderText="Id">
                 <ItemTemplate>
@@ -179,7 +179,18 @@
         </Columns>
         </asp:GridView>
     </center>
-    <br /><br />
+    <br />
+
+    <center>
+    <asp:Button ID="Button3"  CssClass="btn btn-primary  mt-2" runat="server" Text="Print Department Detail" OnClick="Button3_Click" />    
+    </center>
+
+
+    <CR:CrystalReportViewer ID="CrystalReportViewer1" runat="server" AutoDataBind="true" />
+
+
+    <br />
+
 
 </asp:Content>
 
