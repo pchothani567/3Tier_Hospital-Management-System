@@ -1,4 +1,4 @@
-<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="About us.aspx.cs" Inherits="Project_Hospital.About_us" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="About us.aspx.cs" Inherits="Project_Hospital.About_us" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" runat="server" contentplaceholderid="ContentPlaceHolder1">
@@ -38,7 +38,7 @@
             <div class="site-info">
               <a href="#"><span class="mai-call text-primary"></span> +00 123 4455 6666</a>
               <span class="divider">|</span>
-              <a href="#"><span class="mai-mail text-primary"></span> mail@example.com</a>
+              <a href="#"><span class="mai-mail text-primary"></span> onehealth@gmail.com</a>
 
               <%-- User Name--%> <%--RegistrationTable=>Table--%>
                   <span class="divider">|</span>
@@ -62,14 +62,14 @@
       <div class="container">
         <a class="navbar-brand" href="#"><span class="text-primary">One</span>-Health</a>
 
-        <form action="#">
+     <%--   <form action="#">
           <div class="input-group input-navbar">
             <div class="input-group-prepend">
               <span class="input-group-text" id="icon-addon1"><span class="mai-search"></span></span>
             </div>
             <input type="text" class="form-control" placeholder="Enter keyword.." aria-label="Username" aria-describedby="icon-addon1">
           </div>
-        </form>
+        </form>--%>
 
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupport" aria-controls="navbarSupport" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -95,6 +95,9 @@
              <li class="nav-item">
               <a class="nav-link" href="FeedBackForm.aspx">Patient Feedback</a>
             </li>
+             <li class="nav-item">
+              <a class="nav-link" href="TermsAndCondition.aspx">Terms and Condition</a>
+            </li>
             <li class="nav-item">
                <asp:Button ID="logout_btn" runat="server" Text="Logout" CssClass="btn btn-primary ml-lg-3" OnClick="logout_btn_Click" />      
             </li>
@@ -109,7 +112,7 @@
 </asp:Content>
 
 <asp:Content ID="Content3" runat="server" contentplaceholderid="ContentPlaceHolder2">
-    <div class="page-banner overlay-dark bg-image" style="background-image: url(../assets/img/bg_image_1.jpg);">
+    <div class="page-banner overlay-dark bg-image" style="background-image: url(../assets/img/blog/blog_4.jpg);">
     <div class="banner-section">
       <div class="container text-center wow fadeInUp">
         <nav aria-label="Breadcrumb">
@@ -220,7 +223,7 @@
     </div>
   </div>
 
-  <div class="page-section banner-home bg-image" style="background-image: url(../assets/img/banner-pattern.svg);">
+  <%--<div class="page-section banner-home bg-image" style="background-image: url(../assets/img/banner-pattern.svg);">
     <div class="container py-5 py-lg-0">
       <div class="row align-items-center">
         <div class="col-lg-4 wow zoomIn">
@@ -235,7 +238,7 @@
         </div>
       </div>
     </div>
-  </div> <!-- .banner-home -->
+  </div> <!-- .banner-home -->--%>
 
 </asp:Content>
 
@@ -290,7 +293,7 @@
 
       <hr>
 
-      <p id="copyright">Copyright &copy; 2020 <a href="https://macodeid.com/" target="_blank">MACode ID</a>. All right reserved</p>
+     <%-- <p id="copyright">Copyright &copy; 2020 <a href="https://macodeid.com/" target="_blank">MACode ID</a>. All right reserved</p>--%>
     </div>
   </footer>
 

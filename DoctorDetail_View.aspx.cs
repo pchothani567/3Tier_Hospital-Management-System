@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -20,6 +20,15 @@ namespace Project_Hospital
         protected void Page_Load(object sender, EventArgs e)
         {
             getcon();
+
+            if (Session["user"] != null)
+            {
+                lbl_welcome.Text = "WELCOME USER  " + Session["user"];
+            }
+            else
+            {
+                Response.Redirect("Login_User.aspx");
+            }
 
             //1....
             display();
@@ -50,5 +59,14 @@ namespace Project_Hospital
         {
             Response.Redirect("Index.aspx");
         }
+
+        protected void logout_btn_Click(object sender, EventArgs e)
+        {
+            Session.Clear();
+            Session.Abandon();
+            Response.Redirect("Login_User.aspx");
+        }
+
+       
     }
 }

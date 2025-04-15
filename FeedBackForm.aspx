@@ -1,4 +1,6 @@
-<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="FeedBackForm.aspx.cs" Inherits="Project_Hospital.Admin.FeedBackForm" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="FeedBackForm.aspx.cs" Inherits="Project_Hospital.Admin.FeedBackForm" %>
+
+<%@ Register Assembly="CrystalDecisions.Web, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304" Namespace="CrystalDecisions.Web" TagPrefix="CR" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 
@@ -7,6 +9,7 @@
      
     <!DOCTYPE html>
 <html>
+<a href="FeedBackForm.aspx">FeedBackForm.aspx</a>
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -40,7 +43,7 @@
             <div class="site-info">
               <a href="#"><span class="mai-call text-primary"></span> +00 123 4455 6666</a>
               <span class="divider">|</span>
-              <a href="#"><span class="mai-mail text-primary"></span> mail@example.com</a>
+              <a href="#"><span class="mai-mail text-primary"></span>onehealth@gmail.com</a>
 
               <%-- User Name--%> <%--RegistrationTable=>Table--%>
                   <span class="divider">|</span>
@@ -64,14 +67,14 @@
       <div class="container">
         <a class="navbar-brand" href="#"><span class="text-primary">One</span>-Health</a>
 
-        <form action="#">
+        <%--<form action="#">
           <div class="input-group input-navbar">
             <div class="input-group-prepend">
               <span class="input-group-text" id="icon-addon1"><span class="mai-search"></span></span>
             </div>
             <input type="text" class="form-control" placeholder="Enter keyword.." aria-label="Username" aria-describedby="icon-addon1">
           </div>
-        </form>
+        </form>--%>
 
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupport" aria-controls="navbarSupport" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -97,6 +100,9 @@
              <li class="nav-item active">
               <a class="nav-link" href="FeedBackForm.aspx">Patient Feedback</a>
             </li>
+             <li class="nav-item">
+              <a class="nav-link" href="TermsAndCondition.aspx">Terms and Condition</a>
+            </li>
             <li class="nav-item">
                <asp:Button ID="logout_btn" runat="server" Text="Logout" CssClass="btn btn-primary ml-lg-3" OnClick="logout_btn_Click" />      
             </li>
@@ -114,7 +120,7 @@
 
 <asp:Content ID="Content6" runat="server" contentplaceholderid="ContentPlaceHolder2">
     
-    <div class="page-banner overlay-dark bg-image" style="background-image: url(../assets/img/bg_image_1.jpg);">
+    <div class="page-banner overlay-dark bg-image" style="background-image: url(../assets/img/blog/Feedback_img.jpg);">
     <div class="banner-section">
         <div class="container text-center wow fadeInUp">
             <nav aria-label="Breadcrumb">
@@ -229,19 +235,38 @@
             </div>
         </div>
 
-        <div class="col-12 text-center mt-3"> 
+
+       
+
+
+       <%-- <div class="col-12 text-center mt-4"> 
+            <div class="form-check d-inline-flex align-items-center">
+              
         <asp:CheckBoxList ID="chkTerms" runat="server" CssClass="form-check-label ms-2">
             <asp:ListItem>Yes</asp:ListItem>             
         </asp:CheckBoxList>
          I agree to the
         <asp:LinkButton ID="LinkButton1" runat="server" class="text-primary" OnClick="LinkButton1_Click">Terms and conditions</asp:LinkButton>
         </div>
+            </div>--%>
 
-        <%--<div class="col-12 text-center mt-3">           
-            <asp:Label ID="lblTerms" runat="server" CssClass="form-check-label ms-2" AssociatedControlID="chkTerms">
-                I agree to the <a href="#" class="text-primary">terms and conditions</a>
-            </asp:Label>
-        </div>--%>
+        <div class="col-12 text-center mt-4">
+    <div class="form-check d-inline-flex align-items-center justify-content-center">
+        <asp:CheckBoxList ID="chkTerms" runat="server" RepeatLayout="Flow" CssClass="form-check-label ms-2">
+            <asp:ListItem></asp:ListItem>             
+        </asp:CheckBoxList>
+
+        <label class="form-check-label mb-0">
+            Yes, I agree to the
+            <asp:LinkButton ID="LinkButton1" runat="server" CssClass="text-primary" OnClick="LinkButton1_Click">
+                Terms and conditions
+            </asp:LinkButton>
+        </label>
+    </div>
+</div>
+
+
+       
 
         <div class="col-12 text-center mt-4">      
             <asp:Button ID="SubReview" runat="server" Text="Submit Review" CssClass="btn btn-primary w-10 mt-2" OnClick="SubReview_Click"  />          
@@ -250,7 +275,9 @@
 </div>
 
 
-
+    <br />
+    <br />
+    
 
 
 </asp:Content>
@@ -300,8 +327,8 @@
                 </div>
             </div>
             <hr>
-            <p id="copyright">
-                Copyright &copy; 2020 <a href="https://macodeid.com/" target="_blank">MACode ID</a>. All right reserved</p>
+          <%--  <p id="copyright">
+                Copyright &copy; 2020 <a href="https://macodeid.com/" target="_blank">MACode ID</a>. All right reserved</p>--%>
         </div>
     </footer>
 

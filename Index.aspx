@@ -1,4 +1,4 @@
-<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="Index.aspx.cs" Inherits="Project_Hospital.Index" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="Index.aspx.cs" Inherits="Project_Hospital.Index" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" runat="server" contentplaceholderid="ContentPlaceHolder1">
@@ -27,7 +27,7 @@
                     <div class="row">
                         <div class="col-sm-8 text-sm">
                             <div class="site-info">
-                                <a href="#"><span class="mai-call text-primary"></span>+00 123 4455 6666</a> <span class="divider">|</span> <a href="#"><span class="mai-mail text-primary"></span>mail@example.com</a>
+                                <a href="#"><span class="mai-call text-primary"></span>+00 123 4455 6666</a> <span class="divider">|</span> <a href="#"><span class="mai-mail text-primary"></span>onehealth@gmail.com</a>
 
                                 <%-- User Name--%> <%--RegistrationTable=>Table--%>
                   <span class="divider">|</span>
@@ -51,14 +51,14 @@
             <nav class="navbar navbar-expand-lg navbar-light shadow-sm">
                 <div class="container">
                     <a class="navbar-brand" href="#"><span class="text-primary">One</span>-Health</a>
-                    <form action="#">
+                    <%--<form action="#">
                         <div class="input-group input-navbar">
                             <div class="input-group-prepend">
                                 <span class="input-group-text" id="icon-addon1"><span class="mai-search"></span></span>
                             </div>
                             <input type="text" class="form-control" placeholder="Enter keyword.." aria-label="Username" aria-describedby="icon-addon1">
                         </div>
-                    </form>
+                    </form>--%>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupport" aria-controls="navbarSupport" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
@@ -70,6 +70,7 @@
                             <li class="nav-item"><a class="nav-link" href="contact.aspx">Contact</a> </li>
                             <li class="nav-item"><a class="nav-link" href="appointment.aspx">Make Appointment</a> </li>
                             <li class="nav-item"><a class="nav-link" href="FeedBackForm.aspx">Patient Feedback</a> </li>
+                            <li class="nav-item"><a class="nav-link" href="TermsAndCondition.aspx">Terms and Condition</a></li>
                             <li class="nav-item"><asp:Button ID="logout_btn" runat="server" Text="Logout" CssClass="btn btn-primary ml-lg-3" OnClick="logout_btn_Click" /></li>
                          <%--   <li class="nav-item"><a class="btn btn-primary ml-lg-3" href="#">Login / Register</a> </li>--%>
                         </ul>
@@ -86,7 +87,7 @@
             <div class="container text-center wow zoomIn">
                 <span class="subhead">Let's make your life happier</span>
                 <h1 class="display-4">Healthy Living</h1>
-                <a href="#" class="btn btn-primary">Let's Consult</a>
+                <a href="contact.aspx" class="btn btn-primary">Let's Consult</a>
             </div>
         </div>
     </div>
@@ -134,7 +135,7 @@
                             <br>Center</h1>
                         <p class="text-grey mb-4">
                             Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Accusantium aperiam earum ipsa eius, inventore nemo labore eaque porro consequatur ex aspernatur. Explicabo, excepturi accusantium! Placeat voluptates esse ut optio facilis!</p>
-                        <a href="about.html" class="btn btn-primary">Learn More</a>
+                        <a href="About us.aspx" class="btn btn-primary">Learn More</a>
                     </div>
                     <div class="col-lg-6 wow fadeInRight" data-wow-delay="400ms">
                         <div class="img-place custom-img-1">
@@ -152,59 +153,49 @@
 
      
     <div class="page-section">
-    <div class="container">
-      <h1 class="text-center mb-5 wow fadeInUp">Our Doctors</h1>
-         <div class="owl-carousel wow fadeInUp" id="doctorSlideshow">
-        <div class="col-lg-30 py-15 wow zoomIn">
-          <center>
-            <asp:DataList ID="DataList1" runat="server" RepeatDirection="Horizontal" OnItemCommand="DataList1_ItemCommand">
-                <ItemTemplate>
-                    <asp:Image ID="Image1" runat="server"  Height="170px"  Width="200px"  ImageUrl='<%# "Admin/"+Eval("Photo") %>' CssClass="doctor-img" />                 
+  <div class="container">
+    <h1 class="text-center mb-5 wow fadeInUp">Our Doctors</h1>
 
-                    <asp:Label ID="Label1" runat="server" class="text-xl mb-0" Text='<%# Eval("Name") %>'></asp:Label>
-                   <br />
-                    <asp:Label ID="Label2" runat="server" class="text-sm text-grey"  Text='<%# Eval("Speciality") %>'></asp:Label>
-                   
-                   <br /><br />
+    <div class="owl-carousel wow fadeInUp" id="doctorSlideshow">
+      <div class="col-lg-30 py-15 wow zoomIn">
+        <center>
+          <asp:DataList ID="DataList1" runat="server" RepeatDirection="Horizontal" OnItemCommand="DataList1_ItemCommand" CellPadding="10" CellSpacing="5">
+            <ItemTemplate>
+              <div class="item">
+                <div class="card-doctor text-center">
 
-                   
-                    <asp:LinkButton ID="LinkButton2" runat="server" CommandArgument='<%# Eval("Id") %>' CommandName="cmd_detailv">View Detail</asp:LinkButton>
+                  <asp:Image ID="Image1" runat="server" Height="190px" Width="200px" ImageUrl='<%# "Admin/" + Eval("Photo") %>' CssClass="doctor-img" />
+                  
+                  <br /><br />
 
-                    </div>
-                     </div>
+                  <asp:Label ID="Label1" runat="server" CssClass="text-xl mb-0 d-block" Text='<%# Eval("Name") %>'></asp:Label>
+                  
+                  <asp:Label ID="Label2" runat="server" CssClass="text-sm text-grey d-block mb-3" Text='<%# Eval("Speciality") %>'></asp:Label>
 
-                </ItemTemplate>
-            </asp:DataList>
-      </center> 
-           </div>
-          </div>
-                    
+                  <asp:LinkButton ID="LinkButton2" runat="server" CssClass="btn btn-primary mt-2" CommandArgument='<%# Eval("Id") %>' CommandName="cmd_detailv">View Detail</asp:LinkButton>
+
+                </div>
+              </div>
+            </ItemTemplate>
+          </asp:DataList>
+        </center>
+      </div>
+    </div>
+
     <br /><br />
 
+    <%-- Pagination --%>
+    <div class="text-center">
+     <div class="d-flex justify-content-between  mt-4">
+  <asp:LinkButton ID="LinkButton3" runat="server" CssClass="btn btn-primary" OnClick="LinkButton3_Click">Previous</asp:LinkButton>
 
-   <%-- Pagination--%>
-    <asp:LinkButton ID="LinkButton3"  CssClass="btn btn-primary ml-lg-3" runat="server" OnClick="LinkButton3_Click">Previous</asp:LinkButton>
+  <asp:LinkButton ID="LinkButton4" runat="server" CssClass="btn btn-primary" OnClick="LinkButton4_Click">Next</asp:LinkButton>
+</div>
 
+    </div>
+  </div>
+</div>
 
-     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    
-    <asp:LinkButton ID="LinkButton4"   CssClass="btn btn-primary ml-lg-3" runat="server" OnClick="LinkButton4_Click">Next</asp:LinkButton>
-
-        </div>
-     </div>
-    
   <%--  <div class="page-section">
         <div class="container">
             <h1 class="text-center mb-5 wow fadeInUp">Our Doctors</h1>
@@ -363,7 +354,7 @@
                     </div>
                 </div>
                 <div class="col-12 text-center mt-4 wow zoomIn">
-                    <a href="blog.html" class="btn btn-primary">Read More</a>
+                    <a href="News.aspx" class="btn btn-primary">Read More</a>
                 </div>
             </div>
         </div>
@@ -416,8 +407,8 @@
                 </div>
             </div>
             <hr>
-            <p id="copyright">
-                Copyright &copy; 2020 <a href="https://macodeid.com/" target="_blank">MACode ID</a>. All right reserved</p>
+            <%--<p id="copyright">
+                Copyright &copy; 2020 <a href="https://macodeid.com/" target="_blank">MACode ID</a>. All right reserved</p>--%>
         </div>
     </footer>
 

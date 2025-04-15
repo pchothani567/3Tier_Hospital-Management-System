@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -33,6 +33,18 @@ namespace Project_Hospital
             }
 
             getcon();
+
+            // //4
+            //filldept();
+
+            //8   //comment 4.. filldept()
+            if (!IsPostBack)
+            {
+                filldept(); //call 4.. Here
+
+                //Doctor Name.....3
+                filldoctorName();
+            }
         }
 
         protected void logout_btn_Click(object sender, EventArgs e)
@@ -41,6 +53,83 @@ namespace Project_Hospital
             Session.Abandon();
             Response.Redirect("Login_User.aspx");
         }
+
+
+        //Add Department
+
+        //1
+        void filldept()
+        {
+            //2
+            getcon();
+
+            //3
+            da = new SqlDataAdapter("select*from AddDepartment", ba.startcon()); //class file SqlConnecton...
+            ds = new DataSet();
+            da.Fill(ds);
+
+            for (int i = 0; i < ds.Tables[0].Rows.Count; i++)
+            {
+                DrpSpeciality.Items.Add(ds.Tables[0].Rows[i][1].ToString());
+                //AddDepartment =>0 , 1=> DepartmentName
+
+
+
+            }
+        }
+
+        //5
+        protected void DrpSpeciality_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            //6
+            da = new SqlDataAdapter("select * from AddDepartment where DepartmentName='" + DrpSpeciality.SelectedItem.ToString() + "'", ba.startcon());
+            ds = new DataSet();
+            da.Fill(ds);
+
+            //7
+            ViewState["deptid"] = Convert.ToInt16(ds.Tables[0].Rows[0][0]);
+            //Tables 0 = AddDepartment , Rows 0= Id
+
+        
+
+        }
+
+        
+
+         //Doctor Name.....1
+        //1
+        void filldoctorName()
+        {
+            //2
+            getcon();
+
+            //3
+            da = new SqlDataAdapter("select*from Doctors", ba.startcon()); //class file SqlConnecton...
+            ds = new DataSet();
+            da.Fill(ds);
+               
+            for (int i = 0; i < ds.Tables[0].Rows.Count; i++)
+            {
+                drpDoctorName.Items.Add(ds.Tables[0].Rows[i][2].ToString());
+               //Doctors=>Table , Name=>2(column)
+            }
+        }
+
+
+        //Doctor Name.....2
+        //2
+        protected void drpDoctorName_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            //6
+            da = new SqlDataAdapter("select * from Doctors where Name='" + drpDoctorName.SelectedItem.ToString() + "'", ba.startcon());
+            ds = new DataSet();
+            da.Fill(ds);
+
+            //7
+            ViewState["doctnmid"] = Convert.ToInt16(ds.Tables[0].Rows[0][0]);
+        }
+
+
 
         void getcon()
         {
@@ -129,9 +218,9 @@ namespace Project_Hospital
                     }
                 }
 
-                ba.insert(txtfnm.Text, txteml.Text, date.Text, time.Text, s1, s2, s3, s4, s5, DropDownListBloodGroup.SelectedValue, txtphone.Text);
-                Response.Write("<script LANGUAGE='JavaScript' >alert('User Appointment book Successfully !!')</script>");
-
+                ba.insert(Convert.ToInt16(ViewState["deptid"]), Convert.ToInt16(ViewState["doctnmid"]),txtfnm.Text, txteml.Text, date.Text, time.Text, s1, s2, s3, s4, s5, DropDownListBloodGroup.SelectedValue, txtphone.Text);
+             
+                Response.Write("<script LANGUAGE='JavaScript' >alert('User appointment booked successfully!')</script>");
             }
 
             //Empty...2

@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -174,7 +174,7 @@ namespace Project_Hospital.Admin
             {
                 fd.insert(Convert.ToInt16(ViewState["deptid"]), Convert.ToInt16(ViewState["doctnmid"]),txtPatientNm.Text,txtEmlAddress.Text,txtPhoneNo.Text,txtDateOfVst.Text,txtAptTime.Text,DrpSpeciality.SelectedValue,RblWatingTm.Text,RblDoctorCommunication.Text,RblHospitCleanliness.Text,RblOvlExp.Text,txtSuggestion.Text,txtAdtCmt.Text,y);
 
-                Response.Write("<script LANGUAGE='JavaScript' >alert('User Submit Feedback Form Successfully')</script>");
+                Response.Write("<script LANGUAGE='JavaScript' >alert('User feedback form submitted successfully.')</script>");
 
                 //Empty....2
                 empty();
@@ -214,5 +214,7 @@ namespace Project_Hospital.Admin
             Session.Abandon();
             Response.Redirect("Login_User.aspx");
         }
+
+      
     }
 }

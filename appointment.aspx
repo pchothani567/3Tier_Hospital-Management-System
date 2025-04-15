@@ -1,4 +1,4 @@
-<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="appointment.aspx.cs" Inherits="Project_Hospital.appointment" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="appointment.aspx.cs" Inherits="Project_Hospital.appointment" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 
 
@@ -42,7 +42,7 @@
             <div class="site-info">
               <a href="#"><span class="mai-call text-primary"></span> +00 123 4455 6666</a>
               <span class="divider">|</span>
-              <a href="#"><span class="mai-mail text-primary"></span> mail@example.com</a>
+              <a href="#"><span class="mai-mail text-primary"></span>onehealth@gmail.com</a>
 
             <%-- User Name--%> <%--RegistrationTable=>Table--%>
                   <span class="divider">|</span>
@@ -67,14 +67,14 @@
       <div class="container">
         <a class="navbar-brand" href="#"><span class="text-primary">One</span>-Health</a>
 
-        <form action="#">
+       <%-- <form action="#">
           <div class="input-group input-navbar">
             <div class="input-group-prepend">
               <span class="input-group-text" id="icon-addon1"><span class="mai-search"></span></span>
             </div>
             <input type="text" class="form-control" placeholder="Enter keyword.." aria-label="Username" aria-describedby="icon-addon1">
           </div>
-        </form>
+        </form>--%>
 
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupport" aria-controls="navbarSupport" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -103,6 +103,9 @@
              <li class="nav-item">
               <a class="nav-link" href="FeedBackForm.aspx">Patient Feedback</a>
             </li>
+             <li class="nav-item">
+              <a class="nav-link" href="TermsAndCondition.aspx">Terms and Condition</a>
+            </li>
             <li class="nav-item">
                <asp:Button ID="logout_btn" runat="server" Text="Logout" CssClass="btn btn-primary ml-lg-3" OnClick="logout_btn_Click" />      
             </li>
@@ -119,7 +122,7 @@
 
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
 
-     <div class="page-banner overlay-dark bg-image" style="background-image: url(../assets/img/bg_image_1.jpg);">
+     <div class="page-banner overlay-dark bg-image" style="background-image: url(../assets/img/blog/appointment_img.jpg);">
     <div class="banner-section">
       <div class="container text-center wow fadeInUp">
         <nav aria-label="Breadcrumb">
@@ -199,14 +202,37 @@
               <asp:TextBox ID="txtphone" runat="server" class="form-control">+91-</asp:TextBox>
           </div>
 
-        </div>
+          <div class="col-md-6 py-2 wow fadeInRight">
+                <asp:Label runat="server" CssClass="form-label" Text="Speciality (Department)"></asp:Label>
+                <asp:DropDownList ID="DrpSpeciality" runat="server" CssClass="form-select form-control" OnSelectedIndexChanged="DrpSpeciality_SelectedIndexChanged">
 
-       <%-- <button type="submit" class="btn btn-primary wow zoomIn">Send Message</button>--%>
-          <asp:Button ID="btn_apoointment" runat="server" Text="BOOK AN APPOINTMENT" class="btn btn-primary wow zoomIn" OnClick="btn_apoointment_Click" />
-     <%-- </form>--%>
-    </div>
+                   <%-- <asp:ListItem>--- Select Speciality (Department) ---</asp:ListItem>
+                    <asp:ListItem>Cardiology</asp:ListItem>
+                    <asp:ListItem>Neurology</asp:ListItem>
+                    <asp:ListItem>Orthopedics</asp:ListItem>
+                    <asp:ListItem>Pediatrics</asp:ListItem>
+                    <asp:ListItem>Dermatology</asp:ListItem>--%>                       
+                 </asp:DropDownList>         
+            </div>
+      
+
+
+        <div class="col-md-6">
+                <asp:Label runat="server" CssClass="form-label" Text="Select Doctor's Name"></asp:Label>
+                 <asp:DropDownList ID="drpDoctorName" runat="server" CssClass="form-select form-control" OnSelectedIndexChanged="drpDoctorName_SelectedIndexChanged">
+
+                 </asp:DropDownList>
+        </div>
+      
+    </div>       
   </div>
- 
+
+      <div class="col-md-12 text-center mt-4">
+          <asp:Button ID="btn_apoointment" runat="server" Text="BOOK AN APPOINTMENT"  class="btn btn-primary mt-3 wow zoomIn" OnClick="btn_apoointment_Click" />
+       </div>
+
+      <br /><br />
+    
 </asp:Content>
 
 
@@ -262,7 +288,7 @@
 
       <hr>
 
-      <p id="copyright">Copyright &copy; 2020 <a href="https://macodeid.com/" target="_blank">MACode ID</a>. All right reserved</p>
+     <%-- <p id="copyright">Copyright &copy; 2020 <a href="https://macodeid.com/" target="_blank">MACode ID</a>. All right reserved</p>--%>
     </div>
   </footer>
 

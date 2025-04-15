@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -17,15 +17,22 @@ namespace Project_Hospital
         SqlDataAdapter da;
         DataSet ds;
 
-        public void startcon()
+        //public void startcon()
+        //{
+        //    con = new SqlConnection(s);
+        //    con.Open();
+        //}
+
+        public SqlConnection startcon()
         {
             con = new SqlConnection(s);
             con.Open();
+            return con;
         }
 
-        public void insert(string nm,string eml,string date,string time,string s1,string s2,string s3,string s4,string s5,string bloodgroup,string phoneno)
+        public void insert(int deptid, int doctnmid, string nm,string eml,string date,string time,string s1,string s2,string s3,string s4,string s5,string bloodgroup,string phoneno)
         {
-            cmd = new SqlCommand("insert into BookAppointment(Name,Email,Date,Time,Fever,Cough,Headache,Fatigue,Other,BloodGroup,PhoneNo)values('" + nm + "','"+ eml+"','"+date+"','"+time+"','"+s1+"','"+s2+"','"+s3+"','"+s4+"','"+s5+"','"+bloodgroup+"','"+phoneno+"')",con);
+            cmd = new SqlCommand("insert into BookAppointment(Doc_Dept_Id,Doctor_Name_Id,Name,Email,Date,Time,Fever,Cough,Headache,Fatigue,Other,BloodGroup,PhoneNo)values('" + deptid + "','" + doctnmid + "','" + nm + "','"+ eml+"','"+date+"','"+time+"','"+s1+"','"+s2+"','"+s3+"','"+s4+"','"+s5+"','"+bloodgroup+"','"+phoneno+"')",con);
             cmd.ExecuteNonQuery();           
         }
 

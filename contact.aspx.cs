@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -43,7 +43,7 @@ namespace Project_Hospital
             {
                 getcon();
                 ct.insert(txtfnm.Text,txteml.Text,txtsub.Text,txtmsg.Text);
-                Response.Write("<script LANGUAGE='JavaScript' >alert('User Contact Detail Filled Successfully !!!')</script>");
+                Response.Write("<script LANGUAGE='JavaScript' >alert('User contact information submitted successfully.')</script>");
             }
 
             //Empty...2
