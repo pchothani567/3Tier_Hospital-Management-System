@@ -5,6 +5,8 @@
 
 <asp:Content ID="Content2" runat="server" contentplaceholderid="ContentPlaceHolder1">
            
+  
+
     <!DOCTYPE html>
 <html>
 <head>
@@ -40,7 +42,7 @@
             <div class="site-info">
               <a href="#"><span class="mai-call text-primary"></span> +00 123 4455 6666</a>
               <span class="divider">|</span>
-              <a href="#"><span class="mai-mail text-primary"></span> mail@example.com</a>
+              <a href="#"><span class="mai-mail text-primary"></span>onehealth@gmail.com</a>
 
                 <%-- User Name--%> <%--RegistrationTable=>Table--%>
                   <span class="divider">|</span>
@@ -65,14 +67,14 @@
       <div class="container">
         <a class="navbar-brand" href="#"><span class="text-primary">One</span>-Health</a>
 
-        <form action="#">
+       <%-- <form action="#">
           <div class="input-group input-navbar">
             <div class="input-group-prepend">
               <span class="input-group-text" id="icon-addon1"><span class="mai-search"></span></span>
             </div>
             <input type="text" class="form-control" placeholder="Enter keyword.." aria-label="Username" aria-describedby="icon-addon1">
           </div>
-        </form>
+        </form>--%>
 
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupport" aria-controls="navbarSupport" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -101,12 +103,13 @@
              <li class="nav-item">
               <a class="nav-link" href="FeedBackForm.aspx">Patient Feedback</a>
             </li>
+               <li class="nav-item"><a class="nav-link" href="TermsAndCondition.aspx">Terms and Condition</a>
+            </li>
+                          
             <li class="nav-item">
                <asp:Button ID="logout_btn" runat="server" Text="Logout" CssClass="btn btn-primary ml-lg-3" OnClick="logout_btn_Click" />      
             </li>
-           <%-- <li class="nav-item">
-              <a class="btn btn-primary ml-lg-3" href="#">Login / Register</a>
-            </li>--%>
+         
           </ul>
         </div> <!-- .navbar-collapse -->
       </div> <!-- .container -->
@@ -117,8 +120,135 @@
 </asp:Content>
 
 <asp:Content ID="Content3" runat="server" contentplaceholderid="ContentPlaceHolder2">
-    
-     <div class="page-banner overlay-dark bg-image" style="background-image: url(../assets/img/bg_image_1.jpg);">
+   
+   <%-- <h3> Read Rss Feed From  "Health Care"</h3>--%>
+    <%--<asp:Label ID="lblError" runat="server" ForeColor="Red"></asp:Label>
+    <div style="max-height:350px; overflow:auto">
+        <asp:GridView ID="gvRss" runat="server" AutoGenerateColumns="False" ShowHeader="False" Width="90%">
+            <Columns>
+                <asp:TemplateField>
+
+                    <ItemTemplate>
+                       <table border="0" cellpadding="0" cellspacing="5">
+                           <tr>
+                               <td>
+                                   <h3 style="color:#3E7CFF"><%# Eval("Title") %></h3>
+                               </td>
+                               <td width="200px">
+                                   <%# Eval("PublishDate") %>
+                               </td>
+                           </tr>
+                           <tr>
+                               <hr />
+                               <td colspan="2">
+                                    <%# Eval("Description") %>
+                                 </td>
+                           </tr>
+                             <tr>
+                               <td>&nbsp; </td>
+                                 <td align="right">
+                                     <a href='<%# Eval("Link") %>' target="_blank"> Read More...</a> 
+                                 </td>                                                                 
+                           </tr>
+
+                           
+
+                          
+                       </table>
+                    </ItemTemplate>
+
+                </asp:TemplateField>
+            </Columns>
+        </asp:GridView>
+
+
+    </div>--%>
+
+
+    <asp:Label ID="lblError" runat="server" ForeColor="Red" Font-Bold="true"></asp:Label>
+
+<style>
+    .rss-wrapper {
+        max-height: 450px;
+        overflow-y: auto;
+        padding: 20px;
+        background-color: #f8f9fa;
+        border-radius: 12px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .rss-card {
+        background: #ffffff;
+        border-left: 6px solid #007bff;
+        padding: 20px;
+        margin-bottom: 15px;
+        border-radius: 10px;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+        transition: transform 0.2s ease;
+    }
+
+    .rss-card:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    }
+
+    .rss-title {
+        font-size: 20px;
+        font-weight: bold;
+        color: #343a40;
+        margin-bottom: 8px;
+    }
+
+    .rss-date {
+        font-size: 13px;
+        color: #6c757d;
+        float: right;
+    }
+
+    .rss-description {
+        font-size: 15px;
+        color: #495057;
+        margin-bottom: 12px;
+    }
+
+    .rss-link {
+        font-size: 14px;
+        color: #007bff;
+        text-decoration: none;
+        font-weight: 500;
+    }
+
+
+    .rss-link:hover {
+        text-decoration: underline;
+    }
+</style>
+
+<div class="rss-wrapper">
+    <asp:GridView ID="gvRss" runat="server" AutoGenerateColumns="False" ShowHeader="False" Width="100%" GridLines="None">
+        <Columns>
+            <asp:TemplateField>
+                <ItemTemplate>
+                    <div class="rss-card">
+                        <div class="rss-title">
+                            <%# Eval("Title") %>
+                            <span class="rss-date"><%# Eval("PublishDate") %></span>
+                        </div>
+
+                        <div class="rss-description">
+                            <%# Eval("Description") %>
+                        </div>
+                        <a class="rss-link" href='<%# Eval("Link") %>' target="_blank">Read More →</a>
+                    </div>
+                </ItemTemplate>
+            </asp:TemplateField>
+        </Columns>
+    </asp:GridView>
+</div>
+
+
+
+     <%--<div class="page-banner overlay-dark bg-image" style="background-image: url(../assets/img/bg_image_1.jpg);">
     <div class="banner-section">
       <div class="container text-center wow fadeInUp">
         <nav aria-label="Breadcrumb">
@@ -458,7 +588,7 @@
         </div>
       </div> <!-- .row -->
     </div> <!-- .container -->
-  </div> <!-- .banner-home -->
+  </div> <!-- .banner-home -->--%>
 
 
 </asp:Content>
@@ -466,7 +596,7 @@
 
 <asp:Content ID="Content4" runat="server" contentplaceholderid="ContentPlaceHolder3">
            
-      <footer class="page-footer">
+     <%-- <footer class="page-footer">
     <div class="container">
       <div class="row px-md-3">
         <div class="col-sm-6 col-lg-3 py-3">
@@ -512,9 +642,9 @@
         </div>
       </div>
 
-      <hr>
+      <hr>--%>
 
-      <p id="copyright">Copyright &copy; 2020 <a href="https://macodeid.com/" target="_blank">MACode ID</a>. All right reserved</p>
+     <%-- <p id="copyright">Copyright &copy; 2020 <a href="https://macodeid.com/" target="_blank">MACode ID</a>. All right reserved</p>--%>
     </div> <!-- .container -->
   </footer> <!-- .page-footer -->
 
