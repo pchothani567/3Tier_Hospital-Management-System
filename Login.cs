@@ -6,9 +6,10 @@ using System.Data.SqlClient;
 using System.Data;
 using System.Configuration;
 
+
 namespace Project_Hospital.Admin
 {
-    public class DoctorDetailView
+    public class Login
     {
         string s = ConfigurationManager.ConnectionStrings["db"].ConnectionString;
 
@@ -17,10 +18,18 @@ namespace Project_Hospital.Admin
         SqlDataAdapter da;
         DataSet ds;
 
+        //public void startcon()
+        //{
+        //    con = new SqlConnection(s);
+        //    con.Open();
+        //}
+
+        //4.1
         public SqlConnection startcon()
         {
             con = new SqlConnection(s);
             con.Open();
+            //6.2
             return con;
         }
     }

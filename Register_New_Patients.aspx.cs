@@ -9,19 +9,16 @@ using System.Data;
 
 namespace Project_Hospital.Admin
 {
-    public partial class DoctorDetail_View : System.Web.UI.Page
+    public partial class Register_New_Patients : System.Web.UI.Page
     {
         SqlConnection con;
         SqlCommand cmd;
         SqlDataAdapter da;
         DataSet ds;
-        DoctorDetailView ddv;
+        Patients pt;
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            getcon();
-
-
             if (Session["user"] != null)
             {
                 lbl_welcome.Text = "WELCOME  " + Session["user"];
@@ -31,37 +28,25 @@ namespace Project_Hospital.Admin
                 Response.Redirect("Login_Admin.aspx");
             }
 
-
-            //1....
-            display();
-
-
+            getcon();
         }
 
         void getcon()
         {
-            ddv = new DoctorDetailView();
-            ddv.startcon();
+            pt = new Patients();
+            pt.startcon();
         }
 
-        //1....
-        void display()
-        {
-            if (Convert.ToInt16(Request.QueryString["pid"]) != 0)
+        protected void regi_patients_Click(object sender, EventArgs e)
+        {            
+
+            if(regi_patients.Text== "Register")
             {
                 getcon();
-                da = new SqlDataAdapter("select*from Doctors where Id='" + Request.QueryString["pid"] + "'", ddv.startcon());
-                ds = new DataSet();
-                da.Fill(ds);
-                DataList1.DataSource = ds;
-                DataList1.DataBind();
 
+                pt.insert(txtfnm.Text,txteml.Text,date.Text,DropDownListBloodGroup.SelectedValue,txtphone.Text,drpgen.Text,drpmrgsts.SelectedValue,txtaddress.Text,txtinsucompny.Text,txtinsuId.Text);
+                Response.Write("<script LANGUAGE='JavaScript' >alert('Patient Appointment Registered Successfully !!')</script>");
             }
-        }
-
-        protected void Back_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("index.aspx");
         }
 
         protected void Button1_Click(object sender, EventArgs e)
